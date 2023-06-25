@@ -560,3 +560,13 @@ h5 {
         padding: 6em 0;
     }
 }
+
+.paragraph {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+    margin-left: 250px;
+    margin-right: 250px;
+}
