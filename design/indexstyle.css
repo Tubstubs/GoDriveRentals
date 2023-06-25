@@ -10,7 +10,7 @@
     min-height: 100vh;
     width: 100%;
     background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
-        url(/images/bg_1.jpg);
+        url(images/bg_1.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -306,7 +306,7 @@ h5 {
     margin: 100px auto;
     width: 80%;
     background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
-        url(/images/image_3.jpg);
+        url(images/image_3.jpg);
     background-position: center;
     background-size: cover;
     border-radius: 10px;
@@ -332,7 +332,7 @@ h5 {
     height: fit-content;
     width: 100%;
     background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
-        url(/images/bg_3.jpg);
+        url(images/bg_3.jpg);
     background-position: center;
     background-size: 100%;
     border-radius: 10px;
