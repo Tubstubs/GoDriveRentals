@@ -34,6 +34,15 @@ nav img {
     display: inline-block;
     padding: 8px 12px;
     position: relative;
+    color: white;
+}
+
+.nav-links h5 li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+    color: white;
 }
 .nav-links ul li a {
     color: #fff;
@@ -650,6 +659,24 @@ h5 {
 }
 
 .sub-sub-header-cars h1 {
+    color: #fff;
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* ------contact---- */
+.sub-sub-header-contact {
+    height: 50vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+        url(images/image_5.jpg);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+}
+
+.sub-sub-header-contact h1 {
     color: #fff;
     text-align: center;
     margin-top: 100px;

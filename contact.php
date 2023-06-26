@@ -1,7 +1,49 @@
+<?php
+session_start();
+
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+
+    include 'config.php';
+
+    // Prepare the SQL query
+    $query = "SELECT firstName FROM registration WHERE email = ?";
+
+    // Prepare the statement
+    $stmt = $conn->prepare($query);
+
+    if ($stmt) {
+        // Bind the parameter
+        $stmt->bind_param('s', $email);
+
+        // Execute the statement
+        $stmt->execute();
+
+        // Get the result
+        $stmt->bind_result($firstName);
+
+        // Fetch the result
+        $stmt->fetch();
+
+        // Close the statement
+        $stmt->close();
+    } else {
+        // Handle any errors during statement preparation
+        echo "Error: " . $conn->error;
+    }
+
+    // Close the database connection
+    $conn->close();
+} else {
+    // Redirect to the login page if the user is not logged in
+    header("Location: GDRLogin.html");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>El Siesta Vacaciones</title>
+<head>
+        <title>GODRIVERENTALS</title>
         <meta charset="utf-8" />
         <meta
             name="viewport"
@@ -21,7 +63,7 @@
             rel="stylesheet"
             href="design/feedbackdesign/css/open-iconic-bootstrap.min.css"
         />
-        <link rel="stylesheet" href="css/animate.css" />
+        <link rel="stylesheet" href="design/feedbackdesign/css/animate.css" />
 
         <link
             rel="stylesheet"
@@ -54,81 +96,36 @@
 
         <link rel="stylesheet" href="design/feedbackdesign/css/flaticon.css" />
         <link rel="stylesheet" href="design/feedbackdesign/css/icomoon.css" />
-        <link rel="stylesheet" href="design/feedbackdesign/css/style.css" />
+        <link rel="stylesheet" href="design/cardesign/css/style.css" />
+        <link rel="stylesheet" href="design/indexstyle.css" />
     </head>
     <body>
-        <nav
-            class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
-            id="ftco-navbar"
-        >
-            <div class="container">
-                <a class="navbar-brand" href="index.html"
-                    >El Siesta Vacaciones</a
-                >
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#ftco-nav"
-                    aria-controls="ftco-nav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="oi oi-menu"></span> Menu
-                </button>
-
-                <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="index.php" class="nav-link">HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="about.php" class="nav-link">ABOUT</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="cars.html" class="nav-link"
-                                >CARS</a
-                            >
-                        </li>
-                        <li class="nav-item">
-                            <a href="blog.html" class="nav-link">FEEDBACK</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a href="contact.html" class="nav-link">CONTACT</a>
-                        </li>
+    <section class="sub-sub-header-contact">
+            <nav>
+                <a href="index.php"
+                    ><img src="design/images/Logo.png" alt=""
+                /></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-times" onclick="hidemenu()"></i>
+                    <ul>
+                        <li><?php echo "Hi ",$firstName; ?></li>
+                        <li><a href="index.php">HOME</a></li>
+                        <li><a href="about.php">ABOUT</a></li>
+                        <li><a href="car.php">CARS</a></li>
+                        <li><a href="blog.php">FEEDBACK</a></li>
+                        <li><a href="contact.php">CONTACT</a></li>
+                        <li><a href="GDRLogin.html">SIGNOUT</a></li>
                     </ul>
                 </div>
-            </div>
-        </nav>
+                
+                <i class="fa fa-bars" onclick="showmenu()"></i>
+            </nav>
+
+            <h1>Contact Us</h1>
+        </section>
         <!-- END nav -->
 
-        <div
-            class="hero-wrap"
-            style="
-                background-image: url('design/feedbackdesign/images/bg_1.jpg');
-            "
-        >
-            <div class="overlay"></div>
-            <div class="container">
-                <div
-                    class="row no-gutters slider-text d-flex align-itemd-end justify-content-center"
-                >
-                    <div
-                        class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center"
-                    >
-                        <div class="text">
-                            <p class="breadcrumbs mb-2">
-                                <span class="mr-2"
-                                    ><a href="index.html">Home</a></span
-                                >
-                                <span>Contact</span>
-                            </p>
-                            <h1 class="mb-4 bread">Contact Us</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
         <section class="ftco-section contact-section bg-light">
             <div class="container">
@@ -140,8 +137,7 @@
                     <div class="col-md-3 d-flex">
                         <div class="info bg-white p-4">
                             <p>
-                                <span>Address:</span> 198 West 21th Street,
-                                Suite 721 New York NY 10016
+                                <span>Address:</span> 1234 Sesame Street Hogwarts Alabang
                             </p>
                         </div>
                     </div>
@@ -158,7 +154,7 @@
                             <p>
                                 <span>Email:</span>
                                 <a href="mailto:info@yoursite.com"
-                                    >Elsiestavacacions@yahoo.com</a
+                                    >godriverental@yahoo.com</a
                                 >
                             </p>
                         </div>
@@ -166,8 +162,8 @@
                     <div class="col-md-3 d-flex">
                         <div class="info bg-white p-4">
                             <p>
-                                <span>Website</span>
-                                <a href="#">Elsiestavacacions.com</a>
+                                <span>Facebook</span>
+                                <a href="#">rentaldrivers.com</a>
                             </p>
                         </div>
                     </div>
@@ -175,20 +171,8 @@
                 <div class="row block-9">
                     <div class="col-md-6 order-md-last d-flex">
                         <form action="#" class="bg-white p-5 contact-form">
-                            <div class="form-group">
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Your Name"
-                                />
-                            </div>
-                            <div class="form-group">
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Your Email"
-                                />
-                            </div>
+                            
+                            
                             <div class="form-group">
                                 <input
                                     type="text"
@@ -342,27 +326,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <p>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>
-                            All rights reserved | This template is made with
-                            <i
-                                class="icon-heart color-danger"
-                                aria-hidden="true"
-                            ></i>
-                            by
-                            <a href="https://colorlib.com" target="_blank"
-                                >Colorlib</a
-                            >
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                    </div>
-                </div>
+               
             </div>
         </footer>
 

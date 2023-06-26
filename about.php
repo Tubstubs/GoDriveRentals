@@ -72,9 +72,9 @@ if (isset($_SESSION['email'])) {
                     <li><?php echo "Hi ",$firstName; ?></li>
                     <li><a href="index.php">HOME</a></li>
                     <li><a href="about.php">ABOUT</a></li>
-                    <li><a href="car.html">CARS</a></li>
-                    <li><a href="blog.html">FEEDBACK</a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="car.php">CARS</a></li>
+                    <li><a href="blog.php">FEEDBACK</a></li>
+                    <li><a href="contact.php">CONTACT</a></li>
                     <li><a href="GDRLogin.html">SIGNOUT</a></li>
                     
                 </ul>
@@ -88,7 +88,7 @@ if (isset($_SESSION['email'])) {
         <section class="about-us">
             <div class="row">
                 <div class="about-col">
-                    <h1>We are the world's largest University</h1>
+                    <h1>WE ARE THE WORLD'S BEST CAR RENTAL SERVICES</h1>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Quo quae tenetur unde voluptates corporis accusantium
