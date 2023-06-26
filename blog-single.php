@@ -1,3 +1,45 @@
+<?php
+session_start();
+
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+
+    include 'config.php';
+
+    // Prepare the SQL query
+    $query = "SELECT firstName,lastName FROM registration WHERE email = ?";
+
+    // Prepare the statement
+    $stmt = $conn->prepare($query);
+
+    if ($stmt) {
+        // Bind the parameter
+        $stmt->bind_param('s', $email);
+
+        // Execute the statement
+        $stmt->execute();
+
+        // Get the result
+        $stmt->bind_result($firstName,$lastName);
+
+        // Fetch the result
+        $stmt->fetch();
+
+        // Close the statement
+        $stmt->close();
+    } else {
+        // Handle any errors during statement preparation
+        echo "Error: " . $conn->error;
+    }
+
+    // Close the database connection
+    $conn->close();
+} else {
+    // Redirect to the login page if the user is not logged in
+    header("Location: GDRLogin.html");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -67,11 +109,13 @@
                 <div class="nav-links" id="navLinks">
                     <i class="fa fa-times" onclick="hidemenu()"></i>
                     <ul>
+                    <li><?php echo "Hi ",$firstName; ?></li>
                         <li><a href="index.php">HOME</a></li>
                         <li><a href="about.php">ABOUT</a></li>
                         <li><a href="car.php">CARS</a></li>
-                        <li><a href="blog.html">FEEDBACK</a></li>
+                        <li><a href="blog.php">FEEDBACK</a></li>
                         <li><a href="contact.html">CONTACT</a></li>
+                        <li><a href="GDRLogin.html">SIGNOUT</a></li>
                     </ul>
                 </div>
 
@@ -173,7 +217,7 @@
 
                         <div class="pt-5 mt-5">
                             <h3 class="mb-5">3  Comments</h3>
-                            <ul class="comment-list">
+                            <ul class="comment-list" id="comment-list">
                                 <li class="comment">
                                     <div class="vcard bio">
                                         <img
@@ -243,8 +287,6 @@
                             <div class="comment-form-wrap pt-5">
                                 <h3 class="mb-5">Leave a comment</h3>
                                 <form action="#" class="p-5 bg-light">
-                                    
-
                                     <div class="form-group">
                                         <label for="message">Message</label>
                                         <textarea
@@ -260,6 +302,7 @@
                                             type="submit"
                                             value="Post Comment"
                                             class="btn py-3 px-4 btn-primary"
+                                            id="post-comment-btn"
                                         />
                                     </div>
                                 </form>
@@ -535,7 +578,45 @@
                 />
             </svg>
         </div>
-
+        <script>
+            document.getElementById('post-comment-btn').addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent form submission
+        
+                // Get the entered message
+                var message = document.getElementById('message').value;
+        
+                // Create the HTML markup for the new comment
+                var newComment = `
+                    <li class="comment">
+                        <div class="vcard bio">
+                            <img src="design/feedbackdesign/images/person_4.jpg" alt="Image placeholder" />
+                        </div>
+                        <div class="comment-body">
+                            <h3><?php echo $firstName," ",$lastName; ?></h3>
+                            <div class="meta">${getCurrentDate()}</div>
+                            <p>${message}</p>
+                            <p><a href="#" class="reply">Reply</a></p>
+                        </div>
+                    </li>
+                `;
+        
+                // Append the new comment to the existing list of comments
+                var commentList = document.getElementById('comment-list');
+                commentList.innerHTML += newComment;
+        
+                // Clear the textarea
+                document.getElementById('message').value = '';
+            });
+        
+            function getCurrentDate() {
+                var currentDate = new Date();
+                var month = currentDate.toLocaleString('default', { month: 'short' });
+                var day = currentDate.getDate();
+                var year = currentDate.getFullYear();
+                var time = currentDate.toLocaleTimeString('default', { hour: '2-digit', minute: '2-digit' });
+                return `${month} ${day}, ${year} at ${time}`;
+            }
+        </script>
         <script src="design/feedbackdesign/js/jquery.min.js"></script>
         <script src="design/feedbackdesign/js/jquery-migrate-3.0.1.min.js"></script>
         <script src="design/feedbackdesign/js/popper.min.js"></script>

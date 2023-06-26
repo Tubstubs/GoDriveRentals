@@ -110,7 +110,7 @@ if (isset($_SESSION['email'])) {
                         <li><a href="index.php">HOME</a></li>
                         <li><a href="about.php">ABOUT</a></li>
                         <li><a href="car.php">CARS</a></li>
-                        <li><a href="blog.html">FEEDBACK</a></li>
+                        <li><a href="blog.php">FEEDBACK</a></li>
                         <li><a href="contact.html">CONTACT</a></li>
                         <li><a href="GDRLogin.html">SIGNOUT</a></li>
                         

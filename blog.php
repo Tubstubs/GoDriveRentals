@@ -1,4 +1,45 @@
+<?php
+session_start();
 
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+
+    include 'config.php';
+
+    // Prepare the SQL query
+    $query = "SELECT firstName FROM registration WHERE email = ?";
+
+    // Prepare the statement
+    $stmt = $conn->prepare($query);
+
+    if ($stmt) {
+        // Bind the parameter
+        $stmt->bind_param('s', $email);
+
+        // Execute the statement
+        $stmt->execute();
+
+        // Get the result
+        $stmt->bind_result($firstName);
+
+        // Fetch the result
+        $stmt->fetch();
+
+        // Close the statement
+        $stmt->close();
+    } else {
+        // Handle any errors during statement preparation
+        echo "Error: " . $conn->error;
+    }
+
+    // Close the database connection
+    $conn->close();
+} else {
+    // Redirect to the login page if the user is not logged in
+    header("Location: GDRLogin.html");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -67,11 +108,13 @@
                 <div class="nav-links" id="navLinks">
                     <i class="fa fa-times" onclick="hidemenu()"></i>
                     <ul>
+                        <li><?php echo "Hi ",$firstName; ?></li>
                         <li><a href="index.php">HOME</a></li>
                         <li><a href="about.php">ABOUT</a></li>
                         <li><a href="car.php">CARS</a></li>
-                        <li><a href="blog.html">FEEDBACK</a></li>
+                        <li><a href="blog.php">FEEDBACK</a></li>
                         <li><a href="contact.html">CONTACT</a></li>
+                        <li><a href="GDRLogin.html">SIGNOUT</a></li>
                     </ul>
                 </div>
                 
@@ -90,7 +133,7 @@
                     <div class="col-md-3 d-flex ftco-animate">
                         <div class="blog-entry align-self-stretch">
                             <a
-                                href="blog-single.html"
+                                href="blog-single.php"
                                 class="block-20"
                                 style="
                                     background-image: url('design/images/image_1.jpg');
@@ -118,7 +161,7 @@
                     <div class="col-md-3 d-flex ftco-animate">
                         <div class="blog-entry align-self-stretch">
                             <a
-                                href="blog-single.html"
+                                href="blog-single.php"
                                 class="block-20"
                                 style="
                                     background-image: url('design/images/image_2.jpg');
@@ -146,7 +189,7 @@
                     <div class="col-md-3 d-flex ftco-animate">
                         <div class="blog-entry align-self-stretch">
                             <a
-                                href="blog-single.html"
+                                href="blog-single.php"
                                 class="block-20"
                                 style="
                                     background-image: url('design/images/image_3.jpg');
@@ -174,7 +217,7 @@
                     <div class="col-md-3 d-flex ftco-animate">
                         <div class="blog-entry align-self-stretch">
                             <a
-                                href="blog-single.html"
+                                href="blog-single.php"
                                 class="block-20"
                                 style="
                                     background-image: url('design/images/image_4.jpg');
@@ -202,7 +245,7 @@
                     <div class="col-md-3 d-flex ftco-animate">
                         <div class="blog-entry align-self-stretch">
                             <a
-                                href="blog-single.html"
+                                href="blog-single.php"
                                 class="block-20"
                                 style="
                                     background-image: url('design/images/image_5.jpg');
@@ -230,7 +273,7 @@
                     <div class="col-md-3 d-flex ftco-animate">
                         <div class="blog-entry align-self-stretch">
                             <a
-                                href="blog-single.html"
+                                href="blog-single.php"
                                 class="block-20"
                                 style="
                                     background-image: url('design/images/image_6.jpg');
@@ -259,7 +302,7 @@
                     <div class="col-md-3 d-flex ftco-animate">
                         <div class="blog-entry align-self-stretch">
                             <a
-                                href="blog-single.html"
+                                href="blog-single.php"
                                 class="block-20"
                                 style="
                                     background-image: url('design/images/Japan.jpg');
@@ -287,7 +330,7 @@
                     <div class="col-md-3 d-flex ftco-animate">
                         <div class="blog-entry align-self-stretch">
                             <a
-                                href="blog-single.html"
+                                href="blog-single.php"
                                 class="block-20"
                                 style="
                                     background-image: url('design/images/Manila.jpg');
