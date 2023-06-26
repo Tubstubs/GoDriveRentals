@@ -28,7 +28,7 @@ if ($conn->connect_error) {
         if ($password === $row['password']) {
             // Login successful
             echo "Login successful! Welcome, " . $row['email'];
-            header("Refresh: 3; url=index.html");
+            header("Refresh: 1; url=index.php");
             // You can perform additional actions or set session variables here
             // before redirecting to the main page.
             exit;
