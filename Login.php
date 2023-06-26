@@ -25,10 +25,15 @@ if ($conn->connect_error) {
         $row = $result->fetch_assoc();
 
         // Check if the password matches
-        if ($password === $row['password']) {
-            // Login successful
-            echo "Login successful! Welcome, " . $row['email'];
-            header("Refresh: 1; url=index.php");
+// ...
+
+if ($password === $row['password']) {
+    // Login successful
+    session_start();
+    $_SESSION['email'] = $row['email'];
+    // ...
+
+    header("Location: index.php");
             // You can perform additional actions or set session variables here
             // before redirecting to the main page.
             exit;
