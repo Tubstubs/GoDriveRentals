@@ -617,3 +617,22 @@ h5 {
     margin-left: 250px;
     margin-right: 250px;
 }
+
+/* ------feedback---- */
+
+.sub-header-feedback {
+    height: 50vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+        url(images/image_1.jpg);
+    background-position: top;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+}
+
+.sub-header-feedback h1 {
+    color: #fff;
+    text-align: center;
+    margin-top: 100px;
+}
