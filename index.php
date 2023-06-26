@@ -21,6 +21,20 @@
     <!-- ----header--- -->
 
     <body>
+        <?php
+session_start();
+
+// Assuming you have validated the email and password and they are correct
+if ($_POST['email'] == 'user@example.com' && $_POST['password'] == 'password123') {
+    $_SESSION['email'] = $_POST['email'];
+    // Redirect to the desired page after successful sign-in
+    header('Location: index.php');
+    exit();
+} else {
+    // Handle sign-in failure (e.g., show an error message)
+    echo "Invalid email or password";
+}
+?>
         <section class="header">
             <nav>
                 <a href="index.html"
@@ -28,14 +42,18 @@
                 /></a>
                 <div class="nav-links" id="navLinks">
                     <i class="fa fa-times" onclick="hidemenu()"></i>
+
                     <ul>
-                        
-                            <li><a href="index.html">HOME</a></li>
-                            <li><a href="about.html">ABOUT</a></li>
-                            <li><a href="car.html">CARS</a></li>
-                            <li><a href="Feedback.html">FEEDBACK</a></li>
-                            <li><a href="contact.html">CONTACT</a></li>
-                            <li><a href="GDRLogin.html">SIGNOUT</a></li>
+                        <li id="email">
+                            Hi
+                            <?php echo $_SESSION['email']; ?>
+                        </li>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="car.html">CARS</a></li>
+                        <li><a href="Feedback.html">FEEDBACK</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                        <li><a href="GDRLogin.html">SIGNOUT</a></li>
                     </ul>
                 </div>
                 <i class="fa fa-bars" onclick="showmenu()"></i>
