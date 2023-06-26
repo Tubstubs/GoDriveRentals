@@ -1,3 +1,45 @@
+<?php
+session_start();
+
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+
+    include 'config.php';
+
+    // Prepare the SQL query
+    $query = "SELECT firstName FROM registration WHERE email = ?";
+
+    // Prepare the statement
+    $stmt = $conn->prepare($query);
+
+    if ($stmt) {
+        // Bind the parameter
+        $stmt->bind_param('s', $email);
+
+        // Execute the statement
+        $stmt->execute();
+
+        // Get the result
+        $stmt->bind_result($firstName);
+
+        // Fetch the result
+        $stmt->fetch();
+
+        // Close the statement
+        $stmt->close();
+    } else {
+        // Handle any errors during statement preparation
+        echo "Error: " . $conn->error;
+    }
+
+    // Close the database connection
+    $conn->close();
+} else {
+    // Redirect to the login page if the user is not logged in
+    header("Location: GDRLogin.html");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,116 +51,76 @@
         />
 
         <link
-            href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+            href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i"
             rel="stylesheet"
         />
 
         <link
             rel="stylesheet"
-            href="design/cardesign/css/open-iconic-bootstrap.min.css"
+            href="design/feedbackdesign/css/open-iconic-bootstrap.min.css"
         />
-        <link rel="stylesheet" href="design/cardesign/css/animate.css" />
+        <link rel="stylesheet" href="design/feedbackdesign/css/animate.css" />
 
         <link
             rel="stylesheet"
-            href="design/cardesign/css/owl.carousel.min.css"
+            href="design/feedbackdesign/css/owl.carousel.min.css"
         />
         <link
             rel="stylesheet"
-            href="design/cardesign/css/owl.theme.default.min.css"
-        />
-        <link rel="stylesheet" href="design/cardesign/css/magnific-popup.css" />
-
-        <link rel="stylesheet" href="design/cardesign/css/aos.css" />
-
-        <link rel="stylesheet" href="design/cardesign/css/ionicons.min.css" />
-
-        <link
-            rel="stylesheet"
-            href="design/cardesign/css/bootstrap-datepicker.css"
+            href="design/feedbackdesign/css/owl.theme.default.min.css"
         />
         <link
             rel="stylesheet"
-            href="design/cardesign/css/jquery.timepicker.css"
+            href="design/feedbackdesign/css/magnific-popup.css"
         />
 
-        <link rel="stylesheet" href="design/cardesign/css/flaticon.css" />
-        <link rel="stylesheet" href="design/cardesign/css/icomoon.css" />
+        <link rel="stylesheet" href="design/feedbackdesign/css/aos.css" />
+
+        <link
+            rel="stylesheet"
+            href="design/feedbackdesign/css/ionicons.min.css"
+        />
+
+        <link
+            rel="stylesheet"
+            href="design/feedbackdesign/css/bootstrap-datepicker.css"
+        />
+        <link
+            rel="stylesheet"
+            href="design/feedbackdesign/css/jquery.timepicker.css"
+        />
+
+        <link rel="stylesheet" href="design/feedbackdesign/css/flaticon.css" />
+        <link rel="stylesheet" href="design/feedbackdesign/css/icomoon.css" />
         <link rel="stylesheet" href="design/cardesign/css/style.css" />
+        <link rel="stylesheet" href="design/indexstyle.css" />
     </head>
     <body>
-        <nav
-            class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
-            id="ftco-navbar"
-        >
-            <div class="container">
-                <a class="navbar-brand" href="index.html"
-                    ><span>GODRIVE</span> RENTALS</a
-                >
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#ftco-nav"
-                    aria-controls="ftco-nav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="oi oi-menu"></span> Menu
-                </button>
-
-                <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="index.php" class="nav-link">HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="about.php" class="nav-link">ABOUT</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a href="car.html" class="nav-link">CARS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="blog.html" class="nav-link">FEEBACK</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="contact.html" class="nav-link">CONTACT</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="GDRLogin.html" class="nav-link">SIGNOUT</a>
-                        </li>
+        <section class="sub-sub-header-cars">
+            <nav>
+                <a href="index.html"><img src="design/images/Logo.png" alt=""></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-times" onclick="hidemenu()"></i>
+                    <ul>
+                        <li><?php echo "Hi ",$firstName; ?></li>
+                        <li><a href="index.php">HOME</a></li>
+                        <li><a href="about.php">ABOUT</a></li>
+                        <li><a href="car.php">CARS</a></li>
+                        <li><a href="blog.html">FEEDBACK</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                        <li><a href="GDRLogin.html">SIGNOUT</a></li>
+                        
                     </ul>
-                </div>
-            </div>
-        </nav>
+                    <i class="fa fa-bars" onclick="showmenu()"></i>
+                </nav>
+    
+                <h1>Available Cars</h1>
+            </section>
         <!-- END nav -->
-
-        <section
-            class="hero-wrap hero-wrap-2 js-fullheight"
-            style="background-image: url('design/images/bg_3.jpg')"
-            data-stellar-background-ratio="0.5"
-        >
-            <div class="overlay"></div>
-            <div class="container">
-                <div
-                    class="row no-gutters slider-text js-fullheight align-items-end justify-content-start"
-                >
-                    <div class="col-md-9 ftco-animate pb-5">
-                        <p class="breadcrumbs">
-                            <span class="mr-2"
-                                ><a href="index.html"
-                                    >Home
-                                    <i class="ion-ios-arrow-forward"></i></a
-                            ></span>
-                            <span
-                                >Cars <i class="ion-ios-arrow-forward"></i
-                            ></span>
-                        </p>
-                        <h1 class="mb-3 bread">Choose Your Car</h1>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section class="ftco-section bg-light">
             <div class="container">
