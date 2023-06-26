@@ -27,10 +27,11 @@ if ($conn->connect_error) {
         // Check if the password matches
         if ($password === $row['password']) {
             // Login successful
-            echo "Login successful! Welcome, " . $row['email'];
-            header("Refresh: 3; url=index.html");
-            // You can perform additional actions or set session variables here
-            // before redirecting to the main page.
+            session_start(); // Start the session if not already started
+            $_SESSION['email'] = $row['email']; // Store email in session for future use
+
+            // Redirect to the main page
+            header("Location: index.php");
             exit;
         }
     }
@@ -40,5 +41,4 @@ if ($conn->connect_error) {
     header("Refresh: 3; url=GDRLogin.html");
     exit;
 }
-
 ?>
