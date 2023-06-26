@@ -721,157 +721,142 @@ if (isset($_SESSION['email'])) {
                 />
             </svg>
         </div>
-
-        <div class="modal" id="locationModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header bg-primary">
-                        <h2 class="modal-title text-white">One more step...</h2>
-                        <button
-                            type="button"
-                            class="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
+<!--modal-->
+<form action="transaction.php" method="post">
+    <div class="modal" id="locationModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h2 class="modal-title text-white">One more step...</h2>
+                    <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                    >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body bg-primary">
+                    <div class="">
+                        <form
+                            action="#"
+                            class="request-form ftco-animate bg-primary"
                         >
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body bg-primary">
-                        <div class="">
-                            <form
-                                action="#"
-                                class="request-form ftco-animate bg-primary"
-                            >
+                            <div class="form-group mr-2">
+                                <label for="" class="label">Email</label>
+                                <h5><?php echo $email; ?></h5>
+                                <input type="hidden" name="Email" value="<?php echo $email; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="label">Pick-up location</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="City, Airport, Station, etc"
+                                    name="UpLoc"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="label">Drop-off location</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="City, Airport, Station, etc"
+                                    name="DoLoc"
+                                />
+                            </div>
+                            <div class="d-flex">
                                 <div class="form-group mr-2">
-                                    <label for="" class="label">Email</label>
+                                    <label for="" class="label">Pick-up date</label>
                                     <input
                                         type="text"
                                         class="form-control"
                                         id="book_pick_date"
-                                        placeholder="Email"
+                                        placeholder="Date"
+                                        name="PDate"
                                     />
                                 </div>
-                                <div class="form-group">
-                                    <label for="" class="label"
-                                        >Pick-up location</label
-                                    >
+                                <div class="form-group ml-2">
+                                    <label for="" class="label">Drop-off date</label>
                                     <input
                                         type="text"
                                         class="form-control"
-                                        placeholder="City, Airport, Station, etc"
+                                        id="book_off_date"
+                                        placeholder="Date"
+                                        name="DoDate"
                                     />
                                 </div>
-                                <div class="form-group">
-                                    <label for="" class="label"
-                                        >Drop-off location</label
-                                    >
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="label">Pick-up time</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="time_pick"
+                                    placeholder="Time"
+                                    name="PTime"
+                                />
+                            </div>
+                            <div class="my-2">
+                                <select
+                                    class="form-control"
+                                    placeholder="Card"
+                                    type="text"
+                                    name="PCard"
+                                >
+                                    <option selected>Payment Card</option>
+                                    <option class="text-dark" value="1">Visa</option>
+                                    <option class="text-dark" value="2">MasterCard</option>
+                                    <option class="text-dark" value="3">American Express</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="label">Payment Option</label>
+                                <div class="my-2">
                                     <input
                                         type="text"
                                         class="form-control"
-                                        placeholder="City, Airport, Station, etc"
+                                        id="payment_pick"
+                                        placeholder="Card Number"
+                                        name="Cnum"
                                     />
                                 </div>
-                                <div class="d-flex">
-                                    <div class="form-group mr-2">
-                                        <label for="" class="label"
-                                            >Pick-up date</label
-                                        >
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id="book_pick_date"
-                                            placeholder="Date"
-                                        />
-                                    </div>
-                                    <div class="form-group ml-2">
-                                        <label for="" class="label"
-                                            >Drop-off date</label
-                                        >
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id="book_off_date"
-                                            placeholder="Date"
-                                        />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="label"
-                                        >Pick-up time</label
-                                    >
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="time_pick"
-                                        placeholder="Time"
-                                    />
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="label"
-                                        >Payment Option</label
-                                    >
-                                    <div class="my-2">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id="payment_pick"
-                                            placeholder="Card Number"
-                                        />
-                                    </div>
-
-                                    <div class="my-2">
-                                        <select
-                                            class="form-control"
-                                            placeholder="Card"
-                                            type="text"
-                                        >
-                                            <option selected>
-                                                Payment Card
-                                            </option>
-                                            <option class="text-dark" value="1">
-                                                Visa
-                                            </option>
-                                            <option class="text-dark" value="2">
-                                                MasterCard
-                                            </option>
-                                            <option class="text-dark" value="3">
-                                                American Express
-                                            </option>
-                                        </select>
-                                    </div>
-
-                                    <div class="my-2">
-                                        <div class="d-flex">
-                                            <div class="form-group mr-2">
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    placeholder="MM/YYYY"
-                                                />
-                                            </div>
-                                            <div class="form-group ml-2">
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    placeholder="CCV"
-                                                />
-                                            </div>
+                                <div class="my-2">
+                                    <div class="d-flex">
+                                        <div class="form-group mr-2">
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="MM/YYYY"
+                                                name="MY"
+                                            />
+                                        </div>
+                                        <div class="form-group ml-2">
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                placeholder="CCV"
+                                                name="CCV"
+                                            />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <input
-                                        type="submit"
-                                        value="Rent A Car Now"
-                                        class="btn btn-secondary py-3 px-4"
-                                    />
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    type="submit"
+                                    value="Rent A Car Now"
+                                    class="btn btn-secondary py-3 px-4"
+                                />
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</form>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
         <script>
