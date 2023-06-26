@@ -25,6 +25,7 @@
                                 type="text"
                                 class="form-control"
                                 placeholder="City, Airport, Station, etc"
+                                name="UpLoc"
                             />
                         </div>
                         <div class="form-group">
@@ -35,6 +36,7 @@
                                 type="text"
                                 class="form-control"
                                 placeholder="City, Airport, Station, etc"
+                                name="DoLoc"
                             />
                         </div>
                         <div class="d-flex">
@@ -45,6 +47,7 @@
                                     class="form-control"
                                     id="book_pick_date"
                                     placeholder="Date"
+                                    name="PDate"
                                 />
                             </div>
                             <div class="form-group ml-2">
@@ -56,6 +59,7 @@
                                     class="form-control"
                                     id="book_off_date"
                                     placeholder="Date"
+                                    name="DoDate"
                                 />
                             </div>
                         </div>
@@ -66,24 +70,17 @@
                                 class="form-control"
                                 id="time_pick"
                                 placeholder="Time"
+                                name="PTime"
                             />
                         </div>
-                        <div class="form-group">
-                            <label for="" class="label">Payment Option</label>
-                            <div class="my-2">
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="payment_pick"
-                                    placeholder="Card Number"
-                                />
-                            </div>
+                       
 
                             <div class="my-2">
                                 <select
                                     class="form-control"
                                     placeholder="Card"
                                     type="text"
+                                    name="PCard"
                                 >
                                     <option selected>Payment Card</option>
                                     <option class="text-dark" value="1">
@@ -97,6 +94,17 @@
                                     </option>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="" class="label">Payment Option</label>
+                                <div class="my-2">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="payment_pick"
+                                        placeholder="Card Number"
+                                        name="Cnum"
+                                    />
+                                </div>
 
                             <div class="my-2">
                                 <div class="d-flex">
@@ -105,6 +113,7 @@
                                             type="text"
                                             class="form-control"
                                             placeholder="MM/YYYY"
+                                            name="MY"
                                         />
                                     </div>
                                     <div class="form-group ml-2">
@@ -112,6 +121,7 @@
                                             type="text"
                                             class="form-control"
                                             placeholder="CCV"
+                                            name="CCV"
                                         />
                                     </div>
                                 </div>
