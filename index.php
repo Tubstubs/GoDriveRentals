@@ -66,7 +66,7 @@ if (isset($_SESSION['email'])) {
     <body>
         <section class="header">
             <nav>
-                <a href="index.html"
+                <a href="index.php"
                     ><img src="design/images/Logo.png" alt=""
                 /></a>
                 <div class="nav-links" id="navLinks">
@@ -91,7 +91,7 @@ if (isset($_SESSION['email'])) {
                     it with the necessary regelialia. <br />It is a
                     paradisematic country, in which roasted parts
                 </p>
-                <a href="about.html" class="hero-btn">Visit Us To know More</a>
+                <a href="about.php" class="hero-btn">Visit Us To know More</a>
             </div>
         </section>
 
@@ -314,7 +314,7 @@ if (isset($_SESSION['email'])) {
 
             <div class="row">
                 <div class="testimonial-col">
-                    <img src="eduford/user1.jpg" alt="" />
+                    <img src="design/images/person_1.jpg" alt="" />
                     <div>
                         <p>
                             Lorem ipsum, dolor sit amet consectetur adipisicing
@@ -323,7 +323,7 @@ if (isset($_SESSION['email'])) {
                             cum? Molestiae libero excepturi in voluptatem
                             tempora ipsam?
                         </p>
-                        <h3>Elizabeth pitch</h3>
+                        <h3>Kick battowski</h3>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -332,7 +332,7 @@ if (isset($_SESSION['email'])) {
                     </div>
                 </div>
                 <div class="testimonial-col">
-                    <img src="eduford/user2.jpg" alt="" />
+                    <img src="design/images/person_2.jpg" alt="" />
                     <div>
                         <p>
                             Lorem ipsum, dolor sit amet consectetur adipisicing
@@ -359,7 +359,7 @@ if (isset($_SESSION['email'])) {
                 WHAT ARE YOU WAITING FOR<br />
                 RENT NOW
             </h1>
-            <a class="hero-btn" href="car.html">CLICK ME</a>
+            <a class="hero-btn" href="car.php">CLICK ME</a>
         </section>
 
         <!-- --footer-- -->

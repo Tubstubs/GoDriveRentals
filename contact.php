@@ -212,7 +212,11 @@ if (isset($_SESSION['email'])) {
                 <div class="row mb-5">
                     <div class="col-md">
                         <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">El Siesta Vacaciones</h2>
+                        <h2 class="ftco-heading-2">
+                                <a href="index.php" class="logo"
+                                    ><span>GODRIVE</span> RENTALS</a
+                                >
+                            </h2>
                             <p>
                                 Far far away, behind the word mountains, far
                                 from the countries Vokalia and Consonantia,

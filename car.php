@@ -102,7 +102,7 @@ if (isset($_SESSION['email'])) {
     <body>
         <section class="sub-sub-header-cars">
             <nav>
-                <a href="index.html"><img src="design/images/Logo.png" alt=""></a>
+                <a href="index.php"><img src="design/images/Logo.png" alt=""></a>
                 <div class="nav-links" id="navLinks">
                     <i class="fa fa-times" onclick="hidemenu()"></i>
                     <ul>
@@ -135,7 +135,7 @@ if (isset($_SESSION['email'])) {
                             ></div>
                             <div class="text">
                                 <h2 class="mb-0">
-                                    <a href="car-single.html"
+                                    <a href="car-single.php"
                                         >Mercedes Grand Sedan</a
                                     >
                                 </h2>
@@ -152,7 +152,7 @@ if (isset($_SESSION['email'])) {
                                         >Book now</a
                                     >
                                     <a
-                                        href="car-single.html"
+                                        href="car-single.php"
                                         class="btn btn-secondary py-2 ml-1"
                                         >Details</a
                                     >
@@ -170,7 +170,7 @@ if (isset($_SESSION['email'])) {
                             ></div>
                             <div class="text">
                                 <h2 class="mb-0">
-                                    <a href="car-single.html">Range Rover</a>
+                                    <a href="car-single.php">Range Rover</a>
                                 </h2>
                                 <div class="d-flex mb-3">
                                     <span class="cat">Subaru</span>
@@ -185,7 +185,7 @@ if (isset($_SESSION['email'])) {
                                         >Book now</a
                                     >
                                     <a
-                                        href="car-single.html"
+                                        href="car-single.php"
                                         class="btn btn-secondary py-2 ml-1"
                                         >Details</a
                                     >
@@ -203,7 +203,7 @@ if (isset($_SESSION['email'])) {
                             ></div>
                             <div class="text">
                                 <h2 class="mb-0">
-                                    <a href="car-single.html"
+                                    <a href="car-single.php"
                                         >Mercedes Grand Sedan</a
                                     >
                                 </h2>
@@ -220,7 +220,7 @@ if (isset($_SESSION['email'])) {
                                         >Book now</a
                                     >
                                     <a
-                                        href="car-single.html"
+                                        href="car-single.php"
                                         class="btn btn-secondary py-2 ml-1"
                                         >Details</a
                                     >
@@ -239,7 +239,7 @@ if (isset($_SESSION['email'])) {
                             ></div>
                             <div class="text">
                                 <h2 class="mb-0">
-                                    <a href="car-single.html"
+                                    <a href="car-single.php"
                                         >Mercedes Grand Sedan</a
                                     >
                                 </h2>
@@ -256,7 +256,7 @@ if (isset($_SESSION['email'])) {
                                         >Book now</a
                                     >
                                     <a
-                                        href="car-single.html"
+                                        href="car-single.php"
                                         class="btn btn-secondary py-2 ml-1"
                                         >Details</a
                                     >
@@ -274,7 +274,7 @@ if (isset($_SESSION['email'])) {
                             ></div>
                             <div class="text">
                                 <h2 class="mb-0">
-                                    <a href="car-single.html">Range Rover</a>
+                                    <a href="car-single.php">Range Rover</a>
                                 </h2>
                                 <div class="d-flex mb-3">
                                     <span class="cat">Subaru</span>
@@ -289,7 +289,7 @@ if (isset($_SESSION['email'])) {
                                         >Book now</a
                                     >
                                     <a
-                                        href="car-single.html"
+                                        href="car-single.php"
                                         class="btn btn-secondary py-2 ml-1"
                                         >Details</a
                                     >
@@ -307,7 +307,7 @@ if (isset($_SESSION['email'])) {
                             ></div>
                             <div class="text">
                                 <h2 class="mb-0">
-                                    <a href="car-single.html"
+                                    <a href="car-single.php"
                                         >Mercedes Grand Sedan</a
                                     >
                                 </h2>
@@ -324,7 +324,7 @@ if (isset($_SESSION['email'])) {
                                         >Book now</a
                                     >
                                     <a
-                                        href="car-single.html"
+                                        href="car-single.php"
                                         class="btn btn-secondary py-2 ml-1"
                                         >Details</a
                                     >
@@ -343,7 +343,7 @@ if (isset($_SESSION['email'])) {
                             ></div>
                             <div class="text">
                                 <h2 class="mb-0">
-                                    <a href="car-single.html"
+                                    <a href="car-single.php"
                                         >Mercedes Grand Sedan</a
                                     >
                                 </h2>
@@ -360,7 +360,7 @@ if (isset($_SESSION['email'])) {
                                         >Book now</a
                                     >
                                     <a
-                                        href="car-single.html"
+                                        href="car-single.php"
                                         class="btn btn-secondary py-2 ml-1"
                                         >Details</a
                                     >
@@ -378,7 +378,7 @@ if (isset($_SESSION['email'])) {
                             ></div>
                             <div class="text">
                                 <h2 class="mb-0">
-                                    <a href="car-single.html">Range Rover</a>
+                                    <a href="car-single.php">Range Rover</a>
                                 </h2>
                                 <div class="d-flex mb-3">
                                     <span class="cat">Subaru</span>
@@ -393,7 +393,7 @@ if (isset($_SESSION['email'])) {
                                         >Book now</a
                                     >
                                     <a
-                                        href="car-single.html"
+                                        href="car-single.php"
                                         class="btn btn-secondary py-2 ml-1"
                                         >Details</a
                                     >
@@ -411,7 +411,7 @@ if (isset($_SESSION['email'])) {
                             ></div>
                             <div class="text">
                                 <h2 class="mb-0">
-                                    <a href="car-single.html"
+                                    <a href="car-single.php"
                                         >Mercedes Grand Sedan</a
                                     >
                                 </h2>
@@ -428,7 +428,7 @@ if (isset($_SESSION['email'])) {
                                         >Book now</a
                                     >
                                     <a
-                                        href="car-single.html"
+                                        href="car-single.php"
                                         class="btn btn-secondary py-2 ml-1"
                                         >Details</a
                                     >
@@ -447,7 +447,7 @@ if (isset($_SESSION['email'])) {
                             ></div>
                             <div class="text">
                                 <h2 class="mb-0">
-                                    <a href="car-single.html"
+                                    <a href="car-single.php"
                                         >Mercedes Grand Sedan</a
                                     >
                                 </h2>
@@ -464,7 +464,7 @@ if (isset($_SESSION['email'])) {
                                         >Book now</a
                                     >
                                     <a
-                                        href="car-single.html"
+                                        href="car-single.php"
                                         class="btn btn-secondary py-2 ml-1"
                                         >Details</a
                                     >
@@ -482,7 +482,7 @@ if (isset($_SESSION['email'])) {
                             ></div>
                             <div class="text">
                                 <h2 class="mb-0">
-                                    <a href="car-single.html">Range Rover</a>
+                                    <a href="car-single.php">Range Rover</a>
                                 </h2>
                                 <div class="d-flex mb-3">
                                     <span class="cat">Subaru</span>
@@ -497,7 +497,7 @@ if (isset($_SESSION['email'])) {
                                         >Book now</a
                                     >
                                     <a
-                                        href="car-single.html"
+                                        href="car-single.php"
                                         class="btn btn-secondary py-2 ml-1"
                                         >Details</a
                                     >
@@ -514,8 +514,8 @@ if (isset($_SESSION['email'])) {
                                 "
                             ></div>
                             <div class="text">
-                                <h2 class="mb-0">
-                                    <a href="car-single.html"
+                                <h2 class="mb-0">php
+                                    <a href="car-single.php"
                                         >Mercedes Grand Sedan</a
                                     >
                                 </h2>
@@ -532,7 +532,7 @@ if (isset($_SESSION['email'])) {
                                         >Book now</a
                                     >
                                     <a
-                                        href="car-single.html"
+                                        href="car-single.php"
                                         class="btn btn-secondary py-2 ml-1"
                                         >Details</a
                                     >
@@ -565,8 +565,8 @@ if (isset($_SESSION['email'])) {
                     <div class="col-md">
                         <div class="ftco-footer-widget mb-4">
                             <h2 class="ftco-heading-2">
-                                <a href="#" class="logo"
-                                    >Car<span>book</span></a
+                                <a href="index.php" class="logo"
+                                    ><span>GODRIVE</span> RENTALS</a
                                 >
                             </h2>
                             <p>

@@ -1,3 +1,45 @@
+<?php
+session_start();
+
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+
+    include 'config.php';
+
+    // Prepare the SQL query
+    $query = "SELECT firstName FROM registration WHERE email = ?";
+
+    // Prepare the statement
+    $stmt = $conn->prepare($query);
+
+    if ($stmt) {
+        // Bind the parameter
+        $stmt->bind_param('s', $email);
+
+        // Execute the statement
+        $stmt->execute();
+
+        // Get the result
+        $stmt->bind_result($firstName);
+
+        // Fetch the result
+        $stmt->fetch();
+
+        // Close the statement
+        $stmt->close();
+    } else {
+        // Handle any errors during statement preparation
+        echo "Error: " . $conn->error;
+    }
+
+    // Close the database connection
+    $conn->close();
+} else {
+    // Redirect to the login page if the user is not logged in
+    header("Location: GDRLogin.html");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -52,7 +94,7 @@
             id="ftco-navbar"
         >
             <div class="container">
-                <a class="navbar-brand" href="index.html"
+                <a class="navbar-brand" href="index.php"
                     ><span>GODRIVE</span> RENTALS</a
                 >
                 <button
@@ -69,6 +111,7 @@
 
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
+                    <li><?php echo "Hi ",$firstName; ?></li>
                         <li class="nav-item">
                             <a href="index.php" class="nav-link">HOME</a>
                         </li>
@@ -106,7 +149,7 @@
                     <div class="col-md-9 ftco-animate pb-5">
                         <p class="breadcrumbs">
                             <span class="mr-2"
-                                ><a href="index.html"
+                                ><a href="index.php"
                                     >Home
                                     <i class="ion-ios-arrow-forward"></i></a
                             ></span>
@@ -736,7 +779,7 @@
                             ></div>
                             <div class="text">
                                 <h2 class="mb-0">
-                                    <a href="car-single.html"
+                                    <a href="car-single.php"
                                         >Mercedes Grand Sedan</a
                                     >
                                 </h2>
@@ -753,7 +796,7 @@
                                         >Book now</a
                                     >
                                     <a
-                                        href="car-single.html"
+                                        href="car-single.php"
                                         class="btn btn-secondary py-2 ml-1"
                                         >Details</a
                                     >
@@ -771,7 +814,7 @@
                             ></div>
                             <div class="text">
                                 <h2 class="mb-0">
-                                    <a href="car-single.html">Range Rover</a>
+                                    <a href="car-single.php">Range Rover</a>
                                 </h2>
                                 <div class="d-flex mb-3">
                                     <span class="cat">Subaru</span>
@@ -786,7 +829,7 @@
                                         >Book now</a
                                     >
                                     <a
-                                        href="car-single.html"
+                                        href="car-single.php"
                                         class="btn btn-secondary py-2 ml-1"
                                         >Details</a
                                     >
@@ -804,7 +847,7 @@
                             ></div>
                             <div class="text">
                                 <h2 class="mb-0">
-                                    <a href="car-single.html"
+                                    <a href="car-single.php"
                                         >Mercedes Grand Sedan</a
                                     >
                                 </h2>
@@ -821,7 +864,7 @@
                                         >Book now</a
                                     >
                                     <a
-                                        href="car-single.html"
+                                        href="car-single.php"
                                         class="btn btn-secondary py-2 ml-1"
                                         >Details</a
                                     >
@@ -840,7 +883,7 @@
                         <div class="ftco-footer-widget mb-4">
                             <h2 class="ftco-heading-2">
                                 <a href="#" class="logo"
-                                    >Car<span>book</span></a
+                                    ><span>GODRIVE</span> RENTALS</a
                                 >
                             </h2>
                             <p>

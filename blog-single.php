@@ -103,7 +103,7 @@ if (isset($_SESSION['email'])) {
     <body>
         <section class="sub-header-feedback">
             <nav>
-                <a href="index.html"
+                <a href="index.php"
                     ><img src="design/images/Logo.png" alt=""
                 /></a>
                 <div class="nav-links" id="navLinks">
@@ -314,7 +314,7 @@ if (isset($_SESSION['email'])) {
                         
                         
                         <div class="sidebar-box ftco-animate">
-                            <h3 > <a href="blog.html">Other Reviews</a></h3>
+                            <h3 > <a href="blog.php">Other Reviews</a></h3>
                             <div class="block-21 mb-4 d-flex">
                                 <a
                                     class="blog-img mr-4"
@@ -437,7 +437,11 @@ if (isset($_SESSION['email'])) {
                 <div class="row mb-5">
                     <div class="col-md">
                         <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">El Siesta Vacaciones</h2>
+                        <h2 class="ftco-heading-2">
+                                <a href="index.php" class="logo"
+                                    ><span>GODRIVE</span> RENTALS</a
+                                >
+                            </h2>
                             <p>
                                 Far far away, behind the word mountains, far
                                 from the countries Vokalia and Consonantia,

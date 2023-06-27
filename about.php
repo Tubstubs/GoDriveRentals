@@ -65,7 +65,7 @@ if (isset($_SESSION['email'])) {
 <body>
     <section class="sub-header">
         <nav>
-            <a href="index.html"><img src="design/images/Logo.png" alt=""></a>
+            <a href="index.php"><img src="design/images/Logo.png" alt=""></a>
             <div class="nav-links" id="navLinks">
                 <i class="fa fa-times" onclick="hidemenu()"></i>
                 <ul>
@@ -98,7 +98,7 @@ if (isset($_SESSION['email'])) {
                         id numquam illum sit nisi similique quis maxime
                     </p>
 
-                    <a class="hero-btn red-btn" href="">Explore Now</a>
+                    <a class="hero-btn red-btn" href="">Rent now</a>
                 </div>
 
                 <div class="about-col">
