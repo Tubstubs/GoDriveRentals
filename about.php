@@ -98,7 +98,7 @@ if (isset($_SESSION['email'])) {
                         id numquam illum sit nisi similique quis maxime
                     </p>
 
-                    <a class="hero-btn red-btn" href="">Rent now</a>
+                    <a class="hero-btn red-btn" href="car.php">Rent now</a>
                 </div>
 
                 <div class="about-col">
