@@ -744,12 +744,12 @@ if (isset($_SESSION['email'])) {
                             class="request-form ftco-animate bg-primary"
                         >
                             <div class="form-group mr-2">
-                                <label for="" class="label">Email</label>
+                                <label for="" class="text-light" ><b>Email</b></label>
                                 <h5><?php echo $email; ?></h5>
                                 <input type="hidden" name="Email" value="<?php echo $email; ?>">
                             </div>
                             <div class="form-group">
-                                <label for="" class="label">Pick-up location</label>
+                                <label for="" class="text-light">Pick-up location</label>
                                 <input
                                     type="text"
                                     class="form-control"
@@ -758,7 +758,7 @@ if (isset($_SESSION['email'])) {
                                 />
                             </div>
                             <div class="form-group">
-                                <label for="" class="label">Drop-off location</label>
+                                <label for="" class="text-light">Drop-off location</label>
                                 <input
                                     type="text"
                                     class="form-control"
@@ -768,7 +768,7 @@ if (isset($_SESSION['email'])) {
                             </div>
                             <div class="d-flex">
                                 <div class="form-group mr-2">
-                                    <label for="" class="label">Pick-up date</label>
+                                    <label for="" class="text-light">Pick-up date</label>
                                     <input
                                         type="text"
                                         class="form-control"
@@ -778,7 +778,7 @@ if (isset($_SESSION['email'])) {
                                     />
                                 </div>
                                 <div class="form-group ml-2">
-                                    <label for="" class="label">Drop-off date</label>
+                                    <label for="" class="text-light">Drop-off date</label>
                                     <input
                                         type="text"
                                         class="form-control"
@@ -789,7 +789,7 @@ if (isset($_SESSION['email'])) {
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="" class="label">Pick-up time</label>
+                                <label for="" class="text-light">Pick-up time</label>
                                 <input
                                     type="text"
                                     class="form-control"
@@ -798,21 +798,21 @@ if (isset($_SESSION['email'])) {
                                     name="PTime"
                                 />
                             </div>
-                            <div class="my-2">
+                            <div class="form-group">
+                                <label for="" class="text-light">Payment Option</label>
+                                <div class="my-2">
                                 <select
                                     class="form-control"
                                     placeholder="Card"
                                     type="text"
                                     name="PCard"
                                 >
-                                    <option selected>Payment Card</option>
+                                    <option selected >Payment Card</option>
                                     <option class="text-dark" value="1">Visa</option>
                                     <option class="text-dark" value="2">MasterCard</option>
                                     <option class="text-dark" value="3">American Express</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="" class="label">Payment Option</label>
                                 <div class="my-2">
                                     <input
                                         type="text"
@@ -822,6 +822,8 @@ if (isset($_SESSION['email'])) {
                                         name="Cnum"
                                     />
                                 </div>
+                            
+                            
                                 <div class="my-2">
                                     <div class="d-flex">
                                         <div class="form-group mr-2">
